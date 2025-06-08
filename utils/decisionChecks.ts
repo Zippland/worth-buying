@@ -65,32 +65,32 @@ export function getCooldownChecks(
   return checks;
 }
 
-// 理性检查清单
+// 理性检查清单 - 跳出评分框架的最终心理检查
 export function getRationalChecklist(): RationalCheckItem[] {
   return [
     {
-      question: "不买的话现有的能坚持多久？",
+      question: "如果明天这个产品消失了，我会真的遗憾吗？",
       category: 'necessity'
     },
     {
-      question: "这笔钱理财一年后能有多少？",
-      category: 'financial'
+      question: "我刚才的评分是基于真实情况还是理想情况？",
+      category: 'necessity'
     },
     {
-      question: "家人知道价格会怎么说？",
+      question: "如果朋友问我为什么买这个，我能自信地解释吗？",
       category: 'social'
     },
     {
-      question: "买了还有钱应对意外吗？",
+      question: "一年后回看这次购买，我会感到骄傲还是后悔？",
       category: 'risk'
     },
     {
-      question: "一个月后还会想要这个产品吗？",
-      category: 'necessity'
+      question: "我是在为真实的自己买，还是为想象中的自己买？",
+      category: 'social'
     },
     {
-      question: "有没有更便宜的替代方案？",
-      category: 'financial'
+      question: "除了花钱，我还愿意为这个产品付出时间和精力吗？",
+      category: 'risk'
     }
   ];
 }

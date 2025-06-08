@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Calculator, ShoppingCart, TrendingUp, Shield, Clock, Heart, AlertTriangle, Settings } from 'lucide-react';
+import DecisionChecks from './components/DecisionChecks';
 
 const PurchaseDecisionCalculator = () => {
   const [productName, setProductName] = useState('');
@@ -224,9 +225,9 @@ const PurchaseDecisionCalculator = () => {
     ],
     D2: [
       { value: 0, label: "无收益" },
-      { value: 1, label: "小幅改善" },
-      { value: 2, label: "改善健康" },
-      { value: 3, label: "提升技能" },
+      { value: 1, label: "稍有益处" },
+      { value: 2, label: "提升技能" },
+      { value: 3, label: "改善健康" },
       { value: 4, label: "节省成本" },
       { value: 5, label: "带来收入" }
     ],
@@ -640,37 +641,12 @@ const PurchaseDecisionCalculator = () => {
         {/* 结果面板 */}
         <div className="space-y-6">
 
-          {/* 冷静期检查 */}
-          {productPrice && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-semibold text-yellow-800 mb-2 flex items-center gap-2">
-                <AlertTriangle size={18} />
-                冷静期检查
-              </h4>
-              <div className="text-sm text-yellow-700 space-y-1">
-                {parseInt(productPrice) > 5000 && (
-                  <div>• 大额支出 → 建议等待24小时</div>
-                )}
-                {adjustments.discount && (
-                  <div>• 限时促销 → 验证真实性和退换政策</div>
-                )}
-                {calculateScore >= 75 && calculateScore < 85 && (
-                  <div>• 高分但未到闭眼入手 → 找朋友独立评分</div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* 理性检查清单 */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h4 className="font-semibold text-blue-800 mb-2">理性检查清单</h4>
-            <div className="text-sm text-blue-700 space-y-2">
-              <div>□ 不买的话现有的能坚持多久？</div>
-              <div>□ 这笔钱理财一年后能有多少？</div>
-              <div>□ 家人知道价格会怎么说？</div>
-              <div>□ 买了还有钱应对意外吗？</div>
-            </div>
-          </div>
+          {/* 决策检查组件 */}
+          <DecisionChecks 
+            productPrice={productPrice}
+            adjustments={adjustments}
+            score={calculateScore}
+          />
 
           {/* 操作按钮 */}
           <div className="space-y-3">

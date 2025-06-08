@@ -26,14 +26,7 @@ export function getCooldownChecks(
     return checks;
   }
   
-  // 大额支出检查
-  if (price > 5000) {
-    checks.push({
-      condition: true,
-      message: "大额支出 → 建议等待24小时",
-      type: 'warning'
-    });
-  }
+  // 移除重复的大额支出等待时间提示（已在上方显示等待时间）
   
   // 限时促销检查
   if (adjustments.discount) {

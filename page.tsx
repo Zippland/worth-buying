@@ -639,14 +639,6 @@ const PurchaseDecisionCalculator = () => {
 
         {/* 结果面板 */}
         <div className="space-y-6">
-          {/* 总分显示 */}
-          <div className={`${advice.color} rounded-lg p-6 text-white`}>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">{calculateScore.toFixed(1)}</div>
-              <div className="text-xl font-semibold mb-1">{advice.text}</div>
-              <div className="text-sm opacity-90">{advice.desc}</div>
-            </div>
-          </div>
 
           {/* 冷静期检查 */}
           {productPrice && (
@@ -697,6 +689,30 @@ const PurchaseDecisionCalculator = () => {
                 总分: {calculateScore.toFixed(1)} | {advice.text}
               </div>
             )}
+          </div>
+
+          {/* 总分显示 */}
+          <div className={`${advice.color} rounded-lg p-6 text-white`}>
+            <div className="text-center">
+              {/* 商品信息 */}
+              {(productName || productPrice) && (
+                <div className="mb-4 pb-4 border-b border-white/20">
+                  <div className="text-lg font-medium opacity-90">
+                    {productName || '待评估商品'}
+                  </div>
+                  {productPrice && (
+                    <div className="text-2xl font-bold">
+                      ¥{parseInt(productPrice).toLocaleString()}
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {/* 评分结果 */}
+              <div className="text-4xl font-bold mb-2">{calculateScore.toFixed(1)}</div>
+              <div className="text-xl font-semibold mb-1">{advice.text}</div>
+              <div className="text-sm opacity-90">{advice.desc}</div>
+            </div>
           </div>
 
           {/* 维度雷达图简化显示 */}

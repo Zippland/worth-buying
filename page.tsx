@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Calculator, ShoppingCart, TrendingUp, Shield, Clock, Heart, AlertTriangle, Settings } from 'lucide-react';
 import DecisionChecks from './components/DecisionChecks';
 
@@ -132,6 +132,20 @@ const PurchaseDecisionCalculator = () => {
   };
 
   const advice = getDecisionAdvice(calculateScore);
+
+  // AdSense 广告初始化
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const adsbygoogle = (window as any).adsbygoogle;
+        if (adsbygoogle) {
+          adsbygoogle.push({});
+        }
+      }
+    } catch (err) {
+      console.log('AdSense error:', err);
+    }
+  }, []);
 
   // 评分选项定义
   const scoreOptions = {
@@ -483,6 +497,18 @@ const PurchaseDecisionCalculator = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* AdSense 广告位 */}
+      <div className="my-8 flex justify-center">
+        <ins 
+          className="adsbygoogle"
+          style={{ display: 'block', textAlign: 'center' }}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-8196371508613271"
+          data-ad-slot="1659127609"
+        />
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">

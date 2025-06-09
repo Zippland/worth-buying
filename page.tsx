@@ -364,10 +364,10 @@ const PurchaseDecisionCalculator = () => {
     <div className="max-w-4xl mx-auto p-6 bg-white">
       <div className="text-center mb-8 relative">
         <div className="relative inline-block">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
-            <Calculator className="text-blue-600" />
+        <h1 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
+          <Calculator className="text-blue-600" />
             大型开支决策计算器
-          </h1>
+        </h1>
           <div className="absolute -top-2 left-full ml-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs px-2 py-1 rounded-full shadow-sm font-medium">
             V2.1
           </div>

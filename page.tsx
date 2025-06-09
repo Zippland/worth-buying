@@ -358,7 +358,19 @@ const PurchaseDecisionCalculator = () => {
             V2.1
           </div>
         </div>
-        <p className="text-gray-600">理性决策，明智消费</p>
+        <p className="text-gray-600 mb-3">理性决策，明智消费</p>
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span className="text-gray-500">作者:</span>
+          <a 
+            href="https://www.xiaohongshu.com/user/profile/623e8b080000000010007721?xsec_token=YBdeHZTp_aVwi1Ijmras5CgfoI-kMAgtZ2o8K_nsNlYNQ%3D&xsec_source=app_share&xhsshare=CopyLink&appuid=623e8b080000000010007721&apptime=1749435465&share_id=9c57f8db20624722bae648b5404694f4&share_channel=copy_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-red-500 hover:text-red-600 transition-colors font-medium"
+          >
+            <span className="text-base">📕</span>
+            <span>@七卡瓦</span>
+          </a>
+        </div>
       </div>
 
       {/* 产品信息 */}
